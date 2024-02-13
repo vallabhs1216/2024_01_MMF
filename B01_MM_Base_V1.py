@@ -49,7 +49,7 @@ tickets_sold = 0
 
 # Asks user if they want instructions
 
-want_instructions = yes_no("Do you want  instructions? ").lower()
+want_instructions = yes_no("Do you want instructions? ").lower()
 
 # If they yes, output 'display instructions'
 # If they no, output 'program continues'
