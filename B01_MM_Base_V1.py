@@ -1,20 +1,5 @@
 # Functions go here
 
-# Checks user has entered yes / no to a question.
-def yes_no(question):
-
-    while True:
-        response = input(question).lower()
-
-        if response == "yes" or response == "y":
-            return "yes"
-
-        elif response == "no" or response == "n":
-            return "no"  
-                
-        else:
-            print("Please answer yes / no")
-
 # Checks that response is not blank.
 def not_blank(question):
 
@@ -54,7 +39,25 @@ def calc_ticket_price(var_age):
     
     return price
 
-        
+# Checks that users enter a valid response (eg yes / no, cash / credit) based on a list of options
+
+def string_checker(question, num_letters, valid_responses):
+    
+    error = f"Please choose {valid_responses[0]} or {valid_responses[1]}"
+    if num_letters == 1:
+        short_version = 1
+    else:
+        short_version = 2
+
+    while True:
+        response = input(question).lower()
+
+        for item in valid_responses:
+            if response == item[:short_version] or response == item:
+                return item
+                
+        print(error)
+ 
 
 # Main routine
         
@@ -64,9 +67,13 @@ def calc_ticket_price(var_age):
 MAX_TICKETS = 3
 tickets_sold = 0
 
+# Valid response lists
+yes_no_list = ["yes", "no"]
+payment_list = ["cash", "credit"]
+
 # Asks user if they want instructions
 
-want_instructions = yes_no("Do you want instructions? ").lower()
+want_instructions = string_checker("Do you want to read the instructions (y/n): ", 1, yes_no_list)
 
 # If they yes, output 'display instructions'
 # If they no, output 'program continues'
@@ -109,7 +116,10 @@ while tickets_sold < MAX_TICKETS:
 
         # calculate ticket cost
         ticket_cost = calc_ticket_price(age)
-        print(f"Age: {age}, Ticket Price: ${ticket_cost:.2f}")
+        
+        # Get payment method
+        pay_method = string_checker("Choose a payment method (cash / credit): ", 2, payment_list)
+
         tickets_sold += 1
         
 # Output number of tickets sold
