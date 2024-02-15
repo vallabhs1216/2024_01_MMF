@@ -90,7 +90,6 @@ while tickets_sold < MAX_TICKETS:
 
     name = not_blank("Enter your name (or 'xxx' to quit) ")
     
-
     if name == 'xxx':
         break
 
@@ -121,5 +120,6 @@ while tickets_sold < MAX_TICKETS:
 
 if tickets_sold == MAX_TICKETS:
     print("Comgratulations you have sold all the tickets")
+    
 else:
     print(f"You have sold {tickets_sold} ticket/s. There is {MAX_TICKETS - tickets_sold} ticket/s remaining")
