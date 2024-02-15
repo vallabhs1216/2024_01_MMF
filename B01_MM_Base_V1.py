@@ -109,18 +109,13 @@ while tickets_sold < MAX_TICKETS:
         continue
 
     # Calculates ticket cost        
-    while True:
 
-        # Get age (assume users input valid integer)
-        age = int(input("Age: "))
+    ticket_cost = calc_ticket_price(age)
+    
+    # Get payment method
+    pay_method = string_checker("Choose a payment method (cash / credit): ", 2, payment_list)
 
-        # calculate ticket cost
-        ticket_cost = calc_ticket_price(age)
-        
-        # Get payment method
-        pay_method = string_checker("Choose a payment method (cash / credit): ", 2, payment_list)
-
-        tickets_sold += 1
+    tickets_sold += 1
         
 # Output number of tickets sold
 
