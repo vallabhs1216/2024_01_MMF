@@ -199,17 +199,17 @@ today = date.today()
 # Get day, month and year as individual strings
 day = today.strftime("%d")
 month = today.strftime("%m")
-year = today.strftime("%y")
+year = today.strftime("%Y")
 
 heading = f"\nMini Movie Fundraiser Ticket Data {day}/{month}/{year}"
-filename = f"MMF_{day}_{month}_{year}"
+filename = f"MMF_{year}_{month}_{day}"
 
 mini_movie_string = pandas.DataFrame.to_string(mini_movie_frame)
 
 # Create strings for printing
 ticket_cost_heading = "\n----- Ticket Cost / Profit -----"
-total_ticket_sales = f"Total Ticket Sales {total:.2f}"
-total_profit = f"Total Profit {profit:.2f}"
+total_ticket_sales = f"Total Ticket Sales: {total:.2f}"
+total_profit = f"Total Profit: {profit:.2f}"
 
 # Show users how many tickets have been sold
 if tickets_sold == MAX_TICKETS:
